@@ -25,7 +25,15 @@ module WDES
     end
 
     get '/' do
+      @data = SensorData.all
       erb :home, layout: :layout
+    end
+
+    post '/sensor' do
+      #p SensorData.new(params[:sensor_data])
+      SensorData.create!(params[:sensor_data])
+
+      'Success!'
     end
   end
 end

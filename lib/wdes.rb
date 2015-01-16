@@ -30,3 +30,5 @@ require 'mongoid'
 require 'active_support'
 
 Mongoid.load!(File.join(File.expand_path('../..', __FILE__), 'config/mongoid.yml'), WDES.env)
+
+require 'wdes/models/sensor_data'
