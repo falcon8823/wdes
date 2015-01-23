@@ -26,6 +26,7 @@ module WDES
     end
 
     get '/' do
+      @data = SensorData.all
       erb :home, layout: :layout
     end
 
@@ -41,6 +42,13 @@ module WDES
     # sass
     get '/css/:name.css' do
       sass :"sass/#{params[:name]}"
+    end
+
+    post '/sensor' do
+      #p SensorData.new(params[:sensor_data])
+      SensorData.create!(params[:sensor_data])
+
+      'Success!'
     end
   end
 end
