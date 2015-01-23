@@ -4,3 +4,6 @@
 .bundle/
 coverage/
 tmp/
+
+*.sublime-project
+*.sublime-workspace

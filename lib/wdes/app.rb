@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'sinatra/cross_origin'
 require 'sinatra/param'
+require 'compass'
 
 module WDES
   class App < Sinatra::Base
@@ -26,6 +27,20 @@ module WDES
 
     get '/' do
       erb :home, layout: :layout
+    end
+
+    # Compassの設定
+    configure do
+      Compass.configuration do |config|
+        config.project_path = root
+        config.sass_dir = File.join(root, 'public', 'sass')
+      end
+      set :sass, Compass.sass_engine_options
+      set :scss, Compass.sass_engine_options
+    end
+    # sass
+    get '/css/:name.css' do
+      sass :"sass/#{params[:name]}"
     end
   end
 end
