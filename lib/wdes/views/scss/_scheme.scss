@@ -1,0 +1,37 @@
+// -----------------------------------------------
+// カラースキーム
+// -----------------------------------------------
+$scheme_black     : #000;
+$scheme_dark_gray : #2c2c2c;
+$scheme_white     : #fff;
+
+$scheme_black_90  : rgba(0, 0, 0, .9);
+$scheme_black_80  : rgba(0, 0, 0, .8);
+$scheme_black_70  : rgba(0, 0, 0, .7);
+$scheme_black_60  : rgba(0, 0, 0, .6);
+$scheme_black_50  : rgba(0, 0, 0, .5);
+$scheme_black_40  : rgba(0, 0, 0, .4);
+$scheme_black_30  : rgba(0, 0, 0, .3);
+$scheme_black_20  : rgba(0, 0, 0, .2);
+$scheme_black_10  : rgba(0, 0, 0, .1);
+$scheme_black_05  : rgba(0, 0, 0, .05);
+$scheme_black_02  : rgba(0, 0, 0, .02);
+
+$scheme_white_90  : rgba(255, 255, 255, .9);
+$scheme_white_80  : rgba(255, 255, 255, .8);
+$scheme_white_70  : rgba(255, 255, 255, .7);
+$scheme_white_60  : rgba(255, 255, 255, .6);
+$scheme_white_50  : rgba(255, 255, 255, .5);
+$scheme_white_40  : rgba(255, 255, 255, .4);
+$scheme_white_30  : rgba(255, 255, 255, .3);
+$scheme_white_20  : rgba(255, 255, 255, .2);
+$scheme_white_10  : rgba(255, 255, 255, .1);
+$scheme_white_05  : rgba(255, 255, 255, .05);
+$scheme_white_02  : rgba(255, 255, 255, .02);
+
+
+
+// -----------------------------------------------
+// 開発用クラス
+// -----------------------------------------------
+@mixin bdr_in { box-shadow: 0 0 0 1px #f00 inset; }

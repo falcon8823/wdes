@@ -34,14 +34,14 @@ module WDES
     configure do
       Compass.configuration do |config|
         config.project_path = root
-        config.sass_dir = File.join(root, 'public', 'sass')
+        config.sass_dir = File.join(root, 'public', 'scss')
       end
       set :sass, Compass.sass_engine_options
       set :scss, Compass.sass_engine_options
     end
-    # sass
+    # scss
     get '/css/:name.css' do
-      sass :"sass/#{params[:name]}"
+      scss :"scss/#{params[:name]}"
     end
 
     post '/sensor' do
