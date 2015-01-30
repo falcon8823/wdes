@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'sinatra/cross_origin'
 require 'sinatra/param'
+require 'slim'
 require 'compass'
 
 module WDES
@@ -20,14 +21,14 @@ module WDES
       set :root, File.expand_path('../../..', __FILE__)
       set public_folder: Proc.new { File.join(root, 'public') }
       set views: Proc.new { File.join(root, 'lib/wdes/views') }
-      set :erb, layout: :layout
+      set :slim, layout: :layout
       set :method_override, true
       set :sessions, true
     end
 
     get '/' do
       @data = SensorData.all
-      erb :home, layout: :layout
+      slim :home, layout: :layout
     end
 
     # Compassの設定

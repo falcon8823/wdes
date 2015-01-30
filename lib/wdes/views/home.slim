@@ -1,0 +1,31 @@
+.home__firstView
+  time.home__firstView__time 2015年1月23日 10:59
+  dl.home__firstView__data
+    dt.home__firstView__data__title 気温
+    dd.home__firstView__data__param 16 ℃
+  dl.home__firstView__data
+    dt.home__firstView__data__title 温度
+    dd.home__firstView__data__param 7 ℃
+  dl.home__firstView__data
+    dt.home__firstView__data__title 照度
+    dd.home__firstView__data__param 明るい
+  dl.home__firstView__data
+    dt.home__firstView__data__title 水分
+    dd.home__firstView__data__param 多い
+
+table
+  tr
+    th 日時
+    th 気温
+    th 湿度
+    th 照度
+    th 水分
+  - @data.each do |data|
+    tr
+      td =data.measured_at
+      td =data.temperature
+      td =data.humidity
+      td =data.illuminance
+      td =data.moisture
+
+i.fa.fa-check-circle
