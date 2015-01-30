@@ -1,0 +1,98 @@
+@import 'compass'
+@import 'scheme'
++global-reset
+
+html
+    position: relative
+    min-height: 100%
+body
+    min-width: 800px
+    min-height: 600px
+    color: $scheme_white
+    font-size: 0
+    font-family: "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro", "MS P ゴシック", "MS P Gothic", sans-serif
+    background: url(../images/back/grass.jpg) no-repeat center
+    background-size: cover
+a
+    text-decoration: none
+    transition-property: color, border-color, background-color
+    transition-duration: .2s
+
+.window
+    $width       : 700px
+    $height      : 500px
+    position: absolute
+    box-shadow: 0 0 20px $scheme_black_30
+    margin-top: -$height / 2
+    margin-left: -$width / 2
+    top: 50%
+    left: 50%
+    width: $width
+    height: $height
+    border-radius: 5px
+    background: $scheme_white
+
+.home__firstView
+    margin: 0 auto
+    width: 100%
+    background: $scheme_dark_gray url(../images/back/water.jpg) center center
+    background-size: cover
+    overflow: hidden
+
+    #{&}__time
+        display: block
+        margin: 20px 50px
+        padding: 10px
+        color: $scheme_white_50
+        font-size: .7rem
+        text-align: center
+        border-bottom: 1px solid $scheme_white_30
+    #{&}__data
+        float: left
+        position: relative
+        box-sizing: border-box
+        margin-bottom: 1px
+        padding: 10px
+        width: 50%
+        background: $scheme_white_10
+        &:nth-child(even)
+            margin-right: 1px
+            width: calc(50% - 1px)
+        &::after
+            display: block
+            content: ''
+            clear: both
+    #{&}__data__title, #{&}__data__param
+        display: block
+        text-align: center
+    #{&}__data__title
+        height: 30px
+        color: $scheme_white_40
+        font-size: .8rem
+        line-height: 30px
+    #{&}__data__param
+        height: 50px
+        color: $scheme_white_80
+        font-size: 1.5rem
+        line-height: 50px
+
+.home__nav
+    font-size: 0
+
+    #{&}__item
+        display: inline-block
+        box-sizing: border-box
+        margin: 20px calc( (100%/3 - 70px)/2 ) 10px
+        width: 70px
+        height: 70px
+        color: $scheme_white_40
+        font-size: 1.5rem
+        line-height: 70px
+        text-align: center
+        border: 1px solid $scheme_white_40
+        border-radius: 50px
+        background: none
+        &:hover
+            color: $scheme_white_80
+            border-color: $scheme_white_80
+            background-color: $scheme_white_10
