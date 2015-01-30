@@ -5,3 +5,5 @@
 coverage/
 tmp/
 db/*.sqlite3
+*.sublime-project
+*.sublime-workspace
