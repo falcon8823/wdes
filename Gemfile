@@ -9,7 +9,9 @@ gem 'sinatra-param', '~> 1.2.2'
 
 gem 'puma'
 
-gem 'mongoid', '~> 4.0.0'
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'sqlite3'
 
 gem 'activesupport', '~> 4.1.4'
 

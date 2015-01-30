@@ -1,13 +1,15 @@
 class SensorData
-  include Mongoid::Document
+  include DataMapper::Resource
 
-  field :measured_at, type: DateTime
-  field :moisture, type: Integer
-  field :temperature, type: Integer
-  field :humidity, type: Integer
-  field :illuminance, type: Integer
+  property :id, Serial
+  property :measured_at, DateTime
+  property :moisture, Integer
+  property :temperature, Integer
+  property :humidity, Integer
+  property :illuminance, Integer
+  auto_upgrade!
 
-  before_create :set_measured_at
+  before :create, :set_measured_at
 
   protected
 

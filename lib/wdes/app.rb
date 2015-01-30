@@ -11,7 +11,7 @@ module WDES
     helpers Sinatra::Param
 
     configure :development do
-      Moped.logger = Logger.new($stdout)
+      DataMapper::Logger.new($stdout, :debug)
       register Sinatra::Reloader
     end
 
@@ -31,8 +31,8 @@ module WDES
 
     post '/sensor' do
       #p SensorData.new(params[:sensor_data])
+      #SensorData.create(params[:sensor_data])
       SensorData.create!(params[:sensor_data])
-
       'Success!'
     end
   end
