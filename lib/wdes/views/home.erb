@@ -1,21 +1,40 @@
-<h1>Hello!</h1>
-
+<div class="home__firstView">
+    <time class="home__firstView__time">2015年1月23日 10:59</time>
+    <dl class="home__firstView__data">
+        <dt class="home__firstView__data__title">気温</dt>
+        <dd class="home__firstView__data__param">16 ℃</dd>
+    </dl>
+    <dl class="home__firstView__data">
+        <dt class="home__firstView__data__title">温度</dt>
+        <dd class="home__firstView__data__param">7 ℃</dd>
+    </dl>
+    <dl class="home__firstView__data">
+        <dt class="home__firstView__data__title">照度</dt>
+        <dd class="home__firstView__data__param">明るい</dd>
+    </dl>
+    <dl class="home__firstView__data">
+        <dt class="home__firstView__data__title">水分</dt>
+        <dd class="home__firstView__data__param">多い</dd>
+    </dl>
+</div>
 
 <table>
-	<tr>
-		<th>日時</th>
-		<th>気温</th>
-		<th>湿度</th>
-		<th>照度</th>
-		<th>水分</th>
-	</tr>
-	<% @data.each do |data| %>
-	<tr>
-		<td><%= data.measured_at %></td>
-		<td><%= data.temperature %></td>
-		<td><%= data.humidity %></td>
-		<td><%= data.illuminance %></td>
-		<td><%= data.moisture %></td>
-	</tr>
-	<% end %>
+    <tr>
+        <th>日時</th>
+        <th>気温</th>
+        <th>湿度</th>
+        <th>照度</th>
+        <th>水分</th>
+    </tr>
+    <% @data.each do |data| %>
+    <tr>
+        <td><%= data.measured_at %></td>
+        <td><%= data.temperature %></td>
+        <td><%= data.humidity %></td>
+        <td><%= data.illuminance %></td>
+        <td><%= data.moisture %></td>
+    </tr>
+    <% end %>
 </table>
+
+<i class="fa fa-check-circle"></i>

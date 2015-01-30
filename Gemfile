@@ -18,5 +18,5 @@ gem 'activesupport', '~> 4.1.4'
 gem 'pry'
 gem 'awesome_print'
 
-gem "sass"
-gem "compass"
+gem 'sass'
+gem 'compass'
