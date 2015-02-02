@@ -3,22 +3,50 @@
 / 照度→文字列（一応数値）
 / 水分→上と同じ
 
+nav.globalNav
+  a.globalNav__item.globalNav__item_state_active href="#"
+    i.fa.fa-dashboard
+    .globalNav__item__caption 概要
+  a.globalNav__item href="#"
+    i.fa.fa-calendar-o
+    .globalNav__item__caption 今日
+  a.globalNav__item href="#"
+    i.fa.fa-calendar
+    .globalNav__item__caption 昨日
+  a.globalNav__item href="#"
+    i.fa.fa-calendar
+    .globalNav__item__caption 今週
+  a.globalNav__item href="#"
+    i.fa.fa-comments
+    .globalNav__item__caption コメント
 
+.window__container
 
-/ .home__firstView
-/   time.home__firstView__time 2015年1月23日 10:59
-/   dl.home__firstView__data
-/     dt.home__firstView__data__title 気温
-/     dd.home__firstView__data__param 16 ℃
-/   dl.home__firstView__data
-/     dt.home__firstView__data__title 温度
-/     dd.home__firstView__data__param 7 ℃
-/   dl.home__firstView__data
-/     dt.home__firstView__data__title 照度
-/     dd.home__firstView__data__param 明るい
-/   dl.home__firstView__data
-/     dt.home__firstView__data__title 水分
-/     dd.home__firstView__data__param 多い
+  / 各パラメータ
+  .panelChart.panelChart_type_graph.panelChart_chart_temperature
+    canvas width="300" height="200"
+    .panelChart__param 37
+    .panelChart__caption 温度（℃）
+
+  .panelChart.panelChart_type_graph.panelChart_chart_humidity
+    canvas width="300" height="200"
+    .panelChart__param 55
+    .panelChart__caption 湿度（％）
+
+  .panelChart.panelChart_type_text.panelChart_chart_moisture
+    .panelChart__img.panelChart__img_state_attention 注意
+    .panelChart__caption 水分
+
+  .panelChart.panelChart_type_text.panelChart_chart_illuminance
+    .panelChart__img.panelChart__img_state_good 良好
+    .panelChart__caption 照度
+
+  / 最新のコメント
+  .comments
+    .comments__item
+      time.comments__item__time 2015年02月01日 22:01:07
+      .comments__item__txt
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta id fugit, dolor error cum minima quos exercitationem in at illum voluptatum, blanditiis corporis maiores culpa consequatur quae odit accusamus quis.
 
 / table
 /   tr
@@ -34,18 +62,3 @@
 /       td =data.humidity
 /       td =data.illuminance
 /       td =data.moisture
-
-/ .home__nav
-/   a.home__nav__item href="#"
-/     i.fa.fa-check
-/   a.home__nav__item href="#"
-/     i.fa.fa-times
-/   a.home__nav__item href="#"
-/     i.fa.fa-
-/   a.home__nav__item href="#"
-/     i.fa.fa-
-/   a.home__nav__item href="#"
-/     i.fa.fa-
-/   a.home__nav__item href="#"
-/     i.fa.fa-
-
