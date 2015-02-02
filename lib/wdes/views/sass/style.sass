@@ -1,6 +1,6 @@
 @import 'compass'
 @import 'scheme'
-@import url(http://fonts.googleapis.com/css?family=Play)
+@import url(http://fonts.googleapis.com/css?family=Dosis)
 +global-reset
 
 html
@@ -37,7 +37,7 @@ canvas
     font-size: 0
     border-radius: 5px
     background: $scheme_white
-    // overflow: hidden
+    overflow: hidden
     @at-root
         .window__container
             position: relative
@@ -69,7 +69,7 @@ canvas
                 font-size: 1.2rem
                 line-height: 35px
         #{&}__item_state_active
-            color: $scheme_white_80
+            color: $scheme_white
             background: $scheme_white_05
         #{&}__item__caption
             display: block
@@ -80,10 +80,40 @@ canvas
 .panelChart
     display: inline-block
     position: relative
-    background: $scheme_dark_gray
+    background: $scheme_black_70
+    &.panelChart_chart_temperature, &.panelChart_chart_humidity
+        padding: 10px
+    &.panelChart_chart_humidity
+        border-radius: 0 4px 0 0
     &.panelChart_type_text
         width: 300px
         height: 120px
+        background: none
+    &.panelChart_state_good::before, &.panelChart_state_soso::before, &.panelChart_state_notice::before, &.panelChart_state_attention::before
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 0
+        width: 100%
+        height: 120px
+        color: $scheme_white_10
+        font-family: 'FontAwesome'
+        font-size: 12rem
+        font-weight: normal
+        text-align: center
+        background: $scheme_blue
+        overflow: hidden
+        content: '\f164'
+    &.panelChart_state_soso::before
+        background: $scheme_green
+        content: '\f058'
+    &.panelChart_state_notice::before
+        background: $scheme_orange
+        content: '\f071'
+    &.panelChart_state_attention::before
+        background: $scheme_red
+        content: '\f057'
 
     @at-root
         #{&}__param, #{&}__img
@@ -98,14 +128,9 @@ canvas
             text-align: center
             letter-spacing: .2em
             text-indent: .2em
-        #{&}__param
+        &.panelChart_type_graph #{&}__param
             font-size: 3rem
-            font-family: 'Play', sans-serif
-        #{&}__img
-            top: 10px
-            font-size: 2rem
-            letter-spacing: .5em
-            text-indent: .5em
+            font-family: 'Dosis', sans-serif
         #{&}__caption
             display: block
             position: absolute
@@ -119,18 +144,18 @@ canvas
             text-align: center
             letter-spacing: .7em
             text-indent: .7em
-        &.panelChart_chart_temperature
-            background: $scheme_blue
-        &.panelChart_chart_humidity
-            border-radius: 0 4px 0 0
-            background: $scheme_orange
+        &.panelChart_type_text #{&}__param
+            font-size: 2rem
+            letter-spacing: .5em
+            text-indent: .5em
+
 
 .comments
     position: relative
     height: 180px
     border-radius: 0 0 4px 0
     background: $scheme_orange_20
-    overflow: hidden
+    overflow: scroll
 
     @at-root
         #{&}__item

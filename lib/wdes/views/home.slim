@@ -4,19 +4,19 @@
 / 水分→上と同じ
 
 nav.globalNav
-  a.globalNav__item.globalNav__item_state_active href="#"
+  a.globalNav__item.globalNav__item_state_active href="/"
     i.fa.fa-dashboard
     .globalNav__item__caption 概要
-  a.globalNav__item href="#"
+  a.globalNav__item href="/today"
     i.fa.fa-calendar-o
     .globalNav__item__caption 今日
-  a.globalNav__item href="#"
+  a.globalNav__item href="/yesterday"
     i.fa.fa-calendar
     .globalNav__item__caption 昨日
-  a.globalNav__item href="#"
+  a.globalNav__item href="/week"
     i.fa.fa-calendar
     .globalNav__item__caption 今週
-  a.globalNav__item href="#"
+  a.globalNav__item href="/comments"
     i.fa.fa-comments
     .globalNav__item__caption コメント
 
@@ -24,24 +24,42 @@ nav.globalNav
 
   / 各パラメータ
   .panelChart.panelChart_type_graph.panelChart_chart_temperature
-    canvas width="300" height="200"
+    / 30分おきの温度データ（7つ分：最新順）
+    .panelChart_chart_temperature__data 80
+    .panelChart_chart_temperature__data 40
+    .panelChart_chart_temperature__data 50
+    .panelChart_chart_temperature__data 20
+    .panelChart_chart_temperature__data 90
+    .panelChart_chart_temperature__data 30
+    .panelChart_chart_temperature__data 60
+    / ここまで
+    canvas width="280" height="180"
     .panelChart__param 37
     .panelChart__caption 温度（℃）
 
   .panelChart.panelChart_type_graph.panelChart_chart_humidity
-    canvas width="300" height="200"
+    / 30分おきの湿度データ（7つ分：最新順）
+    .panelChart_chart_humidity__data 60
+    .panelChart_chart_humidity__data 50
+    .panelChart_chart_humidity__data 30
+    .panelChart_chart_humidity__data 40
+    .panelChart_chart_humidity__data 80
+    .panelChart_chart_humidity__data 90
+    .panelChart_chart_humidity__data 20
+    / ここまで
+    canvas width="280" height="180"
     .panelChart__param 55
     .panelChart__caption 湿度（％）
 
-  .panelChart.panelChart_type_text.panelChart_chart_moisture
-    .panelChart__img.panelChart__img_state_attention 注意
+  .panelChart.panelChart_type_text.panelChart_state_good
+    .panelChart__param 良好
     .panelChart__caption 水分
 
-  .panelChart.panelChart_type_text.panelChart_chart_illuminance
-    .panelChart__img.panelChart__img_state_good 良好
+  .panelChart.panelChart_type_text.panelChart_state_attention
+    .panelChart__param 暑すぎ
     .panelChart__caption 照度
 
-  / 最新のコメント
+  / 最新のコメント1件
   .comments
     .comments__item
       time.comments__item__time 2015年02月01日 22:01:07

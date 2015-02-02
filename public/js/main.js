@@ -1,5 +1,5 @@
 $(function() {
-    var ctx, data, options;
+    var ctx, data, param, options;
 
     // Chart.jsのグローバルオプション
     Chart.defaults.global = {
@@ -47,19 +47,21 @@ $(function() {
     }
 
     // 気温チャート
+    param = $('.panelChart_chart_temperature__data').map(function() {
+        return $(this).text();
+    }).get().reverse();
     ctx = $('.panelChart_chart_temperature canvas').get(0).getContext('2d');
     data = {
-        labels: ["5分前", "February", "March", "April", "May", "June", "July"],
+        labels: param,
         datasets: [
             {
-                label: "My First dataset",
                 fillColor: "rgba(0, 0, 0, .1)",
-                strokeColor: "rgba(255, 255, 255, .2)",
-                pointColor: "rgba(220, 220, 220, 1)",
-                pointStrokeColor: "#fff",
+                strokeColor: "rgba(255, 255, 255, .1)",
+                pointColor: "rgba(255, 255, 255, .2)",
+                pointStrokeColor: "rgba(255, 255, 255, 0)",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(220, 220, 220, 1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: param
             }
         ]
     };
@@ -69,7 +71,7 @@ $(function() {
         scaleGridLineWidth : 1,
         scaleShowHorizontalLines: false,
         scaleShowVerticalLines: false,
-        bezierCurve : true,
+        bezierCurve : false,
         bezierCurveTension : 0.4,
         pointDot : false,
         pointDotRadius : 4,
@@ -82,37 +84,10 @@ $(function() {
     new Chart(ctx).Line(data, options);
 
     // 湿度チャート
+    param = $('.panelChart_chart_humidity__data').map(function() {
+        return $(this).text();
+    }).get().reverse();
     ctx = $('.panelChart_chart_humidity canvas').get(0).getContext('2d');
-    data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(0, 0, 0, .1)",
-                strokeColor: "rgba(255, 255, 255, .2)",
-                pointColor: "rgba(220, 220, 220, 1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220, 220, 220, 1)",
-                data: [65, 59, 80, 81, 56, 55, 40]
-            }
-        ]
-    };
-    options = {
-        scaleShowGridLines : false,
-        scaleGridLineColor : "rgba(0, 0, 0, .05)",
-        scaleGridLineWidth : 1,
-        scaleShowHorizontalLines: false,
-        scaleShowVerticalLines: false,
-        bezierCurve : true,
-        bezierCurveTension : 0.4,
-        pointDot : false,
-        pointDotRadius : 4,
-        pointDotStrokeWidth : 1,
-        pointHitDetectionRadius : 20,
-        datasetStroke : false,
-        datasetStrokeWidth : 3,
-        datasetFill : false,
-    };
+    data.datasets[0].data = param;
     new Chart(ctx).Line(data, options);
 });
