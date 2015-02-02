@@ -28,7 +28,7 @@ canvas
     $height      : 500px
     position: absolute
     box-shadow: 0 0 20px $scheme_black_30
-    margin-top: -$height / 2
+    margin-top: -$height / 2 + 20
     margin-left: -$width / 2
     top: 50%
     left: 50%
@@ -37,8 +37,26 @@ canvas
     font-size: 0
     border-radius: 5px
     background: $scheme_white
-    overflow: hidden
     @at-root
+        .window__lastUpdated
+            display: inline-block
+            position: absolute
+            box-shadow: 0 0 20px $scheme_black_30
+            padding: 5px 10px
+            top: -40px
+            right: 0
+            height: 20px
+            color: $scheme_white_80
+            font-size: .8rem
+            text-align: center
+            line-height: 20px
+            letter-spacing: .1em
+            text-indent: .1em
+            border-radius: 4px
+            background: $scheme_dark_gray
+            i
+                margin-right: .5em
+                text-indent: 0
         .window__container
             position: relative
             margin-left: 70px
@@ -159,6 +177,7 @@ canvas
 
     @at-root
         #{&}__item
+            position: relative
             box-sizing: border-box
             margin: 10px
             padding: 10px
@@ -166,11 +185,19 @@ canvas
             border: 2px solid $scheme_orange_60
             border-radius: 5px
             background: $scheme_white
+        #{&}__item__summary
+            display: block
+            position: absolute
+            top: 10px
+            left: 20px
+            color: $scheme_orange
+            font-size: .9rem
+            line-height: 1.5em
         #{&}__item__time
             display: block
             padding: 0 1em
             height: 25px
-            color: $scheme_orange
+            color: $scheme_orange_80
             font-size: .7rem
             line-height: 25px
             text-align: right
