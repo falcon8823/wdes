@@ -49,7 +49,7 @@ module WDES
       @current = @list.first
       @comment = Comment.last
 
-      slim :home, layout: :layout
+      slim :home
     end
 
     get '/today' do
@@ -59,7 +59,7 @@ module WDES
       )
       @list.select! { |r| r.measured_at.min == 0 }
 
-      slim :today, layout: :layout
+      slim :today
     end
 
     get '/yesterday' do
@@ -70,7 +70,7 @@ module WDES
       )
       @list.select! { |r| r.measured_at.min == 0 }
 
-      slim :yesterday, layout: :layout
+      slim :yesterday
     end
 
     get '/week' do
@@ -80,7 +80,7 @@ module WDES
       )
       @list.select! { |r| r.measured_at.hour % 4 == 0 && r.measured_at.min == 0 }
 
-      slim :week, layout: :layout
+      slim :week
     end
 
     get '/comments' do
@@ -99,8 +99,6 @@ module WDES
     end
 
     post '/sensor' do
-      #p SensorData.new(params[:sensor_data])
-      #SensorData.create(params[:sensor_data])
       SensorData.create!(params[:sensor_data])
       'Success!'
     end
