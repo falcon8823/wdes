@@ -120,7 +120,7 @@ $(function() {
 
         // データ値取得
         var param_time = $('.panelChart_chart_tempAndHum__data_time').map(function() {
-            return $(this).text() + '時';
+            return $(this).text();
         }).get().reverse();
         var param_temp = $('.panelChart_chart_tempAndHum__data_temp').map(function() {
             return $(this).text();
@@ -167,7 +167,7 @@ $(function() {
 
         // データ値取得
         var param_time = $('.panelChart_chart_moisture__data_time').map(function() {
-            return $(this).text() + '時';
+            return $(this).text();
         }).get().reverse();
         var param_moisture = $('.panelChart_chart_moisture__data_moisture').map(function() {
             return $(this).text();
@@ -199,7 +199,7 @@ $(function() {
 
         // データ値取得
         var param_time = $('.panelChart_chart_illuminance__data_time').map(function() {
-            return $(this).text() + '時';
+            return $(this).text();
         }).get().reverse();
         var param_moisture = $('.panelChart_chart_illuminance__data_illuminance').map(function() {
             return $(this).text();

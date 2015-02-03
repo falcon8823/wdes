@@ -34,6 +34,14 @@ module WDES
       @data = SensorData.all
       slim :today, layout: :layout
     end
+    get '/yesterday' do
+      @data = SensorData.all
+      slim :yesterday, layout: :layout
+    end
+    get '/week' do
+      @data = SensorData.all
+      slim :week, layout: :layout
+    end
     get '/comments' do
       slim :comments, layout: :layout
     end

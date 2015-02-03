@@ -2,13 +2,13 @@ nav.globalNav
   a.globalNav__item href="/"
     i.fa.fa-dashboard
     .globalNav__item__caption 概要
-  a.globalNav__item.globalNav__item_state_active href="/today"
+  a.globalNav__item href="/today"
     i.fa.fa-calendar-o
     .globalNav__item__caption 今日
   a.globalNav__item href="/yesterday"
     i.fa.fa-calendar
     .globalNav__item__caption 昨日
-  a.globalNav__item href="/week"
+  a.globalNav__item.globalNav__item_state_active href="/week"
     i.fa.fa-calendar
     .globalNav__item__caption 今週
   a.globalNav__item href="/comments"
@@ -28,13 +28,13 @@ nav.globalNav
         | 湿度
     / 今日1日分のデータ
     / 時間
-    - 24.times do |t|
-      .panelChart_chart_tempAndHum__data_time #{t}時
+    - 7.times do |t|
+      .panelChart_chart_tempAndHum__data_time #{t}日
     / 温度
-    - 24.times do
+    - 7.times do
       .panelChart_chart_tempAndHum__data_temp =rand(40)
     / 湿度
-    - 24.times do
+    - 7.times do
       .panelChart_chart_tempAndHum__data_hum =rand(60)
 
     canvas width="560" height="260"
@@ -45,10 +45,10 @@ nav.globalNav
     .panelChart__caption 水分
     / 今日1日分のデータ
     / 時間
-    - 24.times do |t|
+    - 7.times do |t|
       .panelChart_chart_moisture__data_time =t
     / 水分
-    - 24.times do
+    - 7.times do
       .panelChart_chart_moisture__data_moisture =rand(60)
 
     canvas width="560" height="60"
@@ -58,10 +58,10 @@ nav.globalNav
     .panelChart__caption 照度
     / 今日1日分のデータ
     / 時間
-    - 24.times do |t|
+    - 7.times do |t|
       .panelChart_chart_illuminance__data_time =t
     / 照度
-    - 24.times do
+    - 7.times do
       .panelChart_chart_illuminance__data_illuminance =rand(60)
 
     canvas width="560" height="60"
