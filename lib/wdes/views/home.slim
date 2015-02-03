@@ -23,7 +23,7 @@ nav.globalNav
     - @list.each do |data|
       .panelChart_chart_temperature__data= data.temperature
     canvas width="280" height="180"
-    .panelChart__param= @current.temperature
+    .panelChart__param= @current.try(:temperature)
     .panelChart__caption 温度（℃）
 
   .panelChart.panelChart_type_graph.panelChart_chart_humidity
@@ -31,20 +31,20 @@ nav.globalNav
     - @list.each do |data|
       .panelChart_chart_humidity__data= data.humidity
     canvas width="280" height="180"
-    .panelChart__param= @current.humidity
+    .panelChart__param= @current.try(:humidity)
     .panelChart__caption 湿度（％）
 
   .panelChart.panelChart_type_text.panelChart_state_good
-    .panelChart__param= @current.moist_condition
+    .panelChart__param= @current.try(:moist_condition)
     .panelChart__caption 水分
 
   .panelChart.panelChart_type_text.panelChart_state_attention
-    .panelChart__param= @current.illum_condition
+    .panelChart__param= @current.try(:illum_condition)
     .panelChart__caption 照度
 
   / 最新のコメント1件
   .comments.comments_type_recently
     .comments__item
       .comments__item__summary 最新のコメント
-      time.comments__item__time= @comment.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
-      .comments__item__txt= @comment.message
+      time.comments__item__time= @comment.created_at.strftime('%Y年%m月%d日 %H:%M:%S') if @comment
+      .comments__item__txt= @comment.try(:message)

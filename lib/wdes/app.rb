@@ -41,7 +41,7 @@ module WDES
 
     before do
       last = SensorData.all(order: [:measured_at.desc], limit: 1).first
-      @last_update = last.measured_at.strftime('%Y年%m月%d日 %H:%M:%S')
+      @last_update = last.measured_at.strftime('%Y年%m月%d日 %H:%M:%S') if last
     end
 
     get '/' do
