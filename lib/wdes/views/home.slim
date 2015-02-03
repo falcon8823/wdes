@@ -1,7 +1,7 @@
 nav.globalNav
   a.globalNav__item.globalNav__item_state_active href="/"
     i.fa.fa-dashboard
-    .globalNav__item__caption 概要
+    .globalNav__item__caption 現在
   a.globalNav__item href="/today"
     i.fa.fa-calendar-o
     .globalNav__item__caption 今日
@@ -20,26 +20,26 @@ nav.globalNav
   / 各パラメータ
   .panelChart.panelChart_type_graph.panelChart_chart_temperature
     / 30分おきの温度データ（7つ分：最新順）
-    - 7.times do
-      .panelChart_chart_temperature__data =rand(40)
+    - @list.each do |data|
+      .panelChart_chart_temperature__data= data.temperature
     canvas width="280" height="180"
-    .panelChart__param 37
+    .panelChart__param= @current.temperature
     .panelChart__caption 温度（℃）
 
   .panelChart.panelChart_type_graph.panelChart_chart_humidity
     / 30分おきの湿度データ（7つ分：最新順）
-    - 7.times do
-      .panelChart_chart_humidity__data =rand(60)
+    - @list.each do |data|
+      .panelChart_chart_humidity__data= data.humidity
     canvas width="280" height="180"
-    .panelChart__param 55
+    .panelChart__param= @current.humidity
     .panelChart__caption 湿度（％）
 
   .panelChart.panelChart_type_text.panelChart_state_good
-    .panelChart__param 良好
+    .panelChart__param= @current.moist_condition
     .panelChart__caption 水分
 
   .panelChart.panelChart_type_text.panelChart_state_attention
-    .panelChart__param 暑すぎ
+    .panelChart__param= @current.illum_condition
     .panelChart__caption 照度
 
   / 最新のコメント1件

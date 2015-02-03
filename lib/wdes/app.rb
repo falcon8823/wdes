@@ -24,30 +24,7 @@ module WDES
       set :slim, layout: :layout
       set :method_override, true
       set :sessions, true
-    end
 
-    get '/' do
-      @data = SensorData.all
-      slim :home, layout: :layout
-    end
-    get '/today' do
-      @data = SensorData.all
-      slim :today, layout: :layout
-    end
-    get '/yesterday' do
-      @data = SensorData.all
-      slim :yesterday, layout: :layout
-    end
-    get '/week' do
-      @data = SensorData.all
-      slim :week, layout: :layout
-    end
-    get '/comments' do
-      slim :comments, layout: :layout
-    end
-
-    # Compassの設定
-    configure do
       Compass.configuration do |config|
         config.project_path = root
         config.sass_dir = File.join(root, 'public', 'sass')
@@ -55,9 +32,58 @@ module WDES
       set :sass, Compass.sass_engine_options
       set :scss, Compass.sass_engine_options
     end
+
     # sass
     get '/css/:name.css' do
       sass :"sass/#{params[:name]}"
+    end
+
+
+    before do
+      last = SensorData.all(order: [:measured_at.desc], limit: 1).first
+      @last_update = last.measured_at.strftime('%Y年%m月%d日 %H:%m:%S')
+    end
+
+    get '/' do
+      @list = SensorData.all(order: [:measured_at.desc], limit: 7)
+      @current = @list.first
+
+      slim :home, layout: :layout
+    end
+
+    get '/today' do
+      @list = SensorData.all(
+        :measured_at.gt => 1.days.ago,
+        order: [:measured_at.desc]
+      )
+      @list.select! { |r| r.measured_at.min == 0 }
+
+      slim :today, layout: :layout
+    end
+
+    get '/yesterday' do
+      @list = SensorData.all(
+        :measured_at.gt => 2.days.ago.beginning_of_day,
+        :measured_at.lt => 2.days.ago.end_of_day,
+        order: [:measured_at.desc]
+      )
+      @list.select! { |r| r.measured_at.min == 0 }
+
+      slim :yesterday, layout: :layout
+    end
+
+    get '/week' do
+      @list = SensorData.all(
+        :measured_at.gt => 4.days.ago.beginning_of_day,
+        order: [:measured_at.desc]
+      )
+      @list.select! { |r| r.measured_at.hour % 4 == 0 && r.measured_at.min == 0 }
+
+      slim :week, layout: :layout
+    end
+
+    get '/comments' do
+      slim :comments, layout: :layout
     end
 
     post '/sensor' do

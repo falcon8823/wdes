@@ -1,0 +1,46 @@
+.window__container
+
+  / 温度、湿度グラフ
+  .panelChart.panelChart_type_graph.panelChart_chart_tempAndHum
+    .panelChart__caption
+      span.color_orange
+        i.fa.fa-square
+        | 温度
+      span.color_blue
+        i.fa.fa-square
+        | 湿度
+    / 今日1日分のデータ
+    / 時間
+    - @list.each do |data|
+      .panelChart_chart_tempAndHum__data_time= data.measured_at.strftime('%d日 %H:%M')
+      / 温度
+      .panelChart_chart_tempAndHum__data_temp= data.temperature
+      / 湿度
+      .panelChart_chart_tempAndHum__data_hum= data.humidity
+
+    canvas width="560" height="260"
+
+
+  / 水分グラフ
+  .panelChart.panelChart_type_graph.panelChart_chart_moisture
+    .panelChart__caption 水分
+    / 今日1日分のデータ
+    - @list.each do |data|
+      / 時間
+      .panelChart_chart_moisture__data_time #{data.measured_at.strftime('%d日 %H時%M分')} #{data.moist_condition}
+      / 水分
+      .panelChart_chart_moisture__data_moisture= data.moisture
+
+    canvas width="560" height="60"
+
+  / 照度グラフ
+  .panelChart.panelChart_type_graph.panelChart_chart_illuminance
+    .panelChart__caption 照度
+    / 今日1日分のデータ
+    - @list.each do |data|
+      / 時間
+      .panelChart_chart_illuminance__data_time #{data.measured_at.strftime('%d日 %H時%M分')} #{data.illum_condition}
+      / 照度
+      .panelChart_chart_illuminance__data_illuminance= data.illum
+
+    canvas width="560" height="60"
