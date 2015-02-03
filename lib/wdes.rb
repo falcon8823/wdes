@@ -27,7 +27,7 @@ module WDES
 end
 
 #require 'mongoid'
-require 'active_support'
+require 'active_support/all'
 
 #require 'dm-core'
 #require 'dm-migrations'
