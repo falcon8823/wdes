@@ -18,11 +18,10 @@ nav.globalNav
 .window__container
 
   .comments
-    form.comments__form
-      input type="text" name="contents"
+    form.comments__form(action="/comments" method="POST")
+      input type="text" name="message"
       input type="submit" value="投稿"
-    - 5.times
+    - @comments.each do |comment|
       .comments__item
-        time.comments__item__time 2015年02月01日 22:01:07
-        .comments__item__txt
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta id fugit, dolor error cum minima quos exercitationem in at illum voluptatum, blanditiis corporis maiores culpa consequatur quae odit accusamus quis.
+        time.comments__item__time= comment.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
+        .comments__item__txt= comment.message

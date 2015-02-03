@@ -47,6 +47,7 @@ module WDES
     get '/' do
       @list = SensorData.all(order: [:measured_at.desc], limit: 7)
       @current = @list.first
+      @comment = Comment.last
 
       slim :home, layout: :layout
     end
@@ -83,7 +84,18 @@ module WDES
     end
 
     get '/comments' do
-      slim :comments, layout: :layout
+      @comments = Comment.all(order: [:created_at.desc], limit: 30)
+
+      slim :comments
+    end
+
+    post '/comments' do
+      if Comment.create(message: params[:message])
+        redirect '/comments'
+      else
+        @comments = Comment.all(order: [:created_at.desc], limit: 30)
+        slim :comments
+      end
     end
 
     post '/sensor' do

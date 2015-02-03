@@ -37,5 +37,6 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/db.sqlite3")
 #Mongoid.load!(File.join(File.expand_path('../..', __FILE__), 'config/mongoid.yml'), WDES.env)
 
 require 'wdes/models/sensor_data'
+require 'wdes/models/comment'
 
 DataMapper.finalize
