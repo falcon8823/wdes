@@ -22,6 +22,10 @@ canvas
     margin: 0
     padding: 0
     border: none
+span.color_orange
+    color: $scheme_orange
+span.color_blue
+    color: $scheme_blue
 
 .window
     $width       : 670px
@@ -99,10 +103,6 @@ canvas
     display: inline-block
     position: relative
     background: $scheme_black_70
-    &.panelChart_chart_temperature, &.panelChart_chart_humidity
-        padding: 10px
-    &.panelChart_chart_humidity
-        border-radius: 0 4px 0 0
     &.panelChart_type_text
         width: 300px
         height: 120px
@@ -132,6 +132,22 @@ canvas
     &.panelChart_state_attention::before
         background: $scheme_red
         content: '\f057'
+
+    &.panelChart_chart_temperature, &.panelChart_chart_humidity
+        padding: 10px
+    &.panelChart_chart_humidity, &.panelChart_chart_tempAndHum
+        border-radius: 0 4px 0 0
+    &.panelChart_chart_tempAndHum, &.panelChart_chart_moisture, &.panelChart_chart_illuminance
+        padding: 30px 20px 10px
+        .panelChart__caption
+            top: 5px
+            height: 30px
+            color: $scheme_white
+            line-height: 30px
+    &.panelChart_chart_moisture
+        background: $scheme_blue_90
+    &.panelChart_chart_illuminance
+        background: $scheme_orange_90
 
     @at-root
         #{&}__param, #{&}__img

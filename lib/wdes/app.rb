@@ -30,6 +30,10 @@ module WDES
       @data = SensorData.all
       slim :home, layout: :layout
     end
+    get '/today' do
+      @data = SensorData.all
+      slim :today, layout: :layout
+    end
 
     # Compassの設定
     configure do
