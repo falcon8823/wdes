@@ -1,0 +1,28 @@
+nav.globalNav
+  a.globalNav__item href="/"
+    i.fa.fa-dashboard
+    .globalNav__item__caption 概要
+  a.globalNav__item href="/today"
+    i.fa.fa-calendar-o
+    .globalNav__item__caption 今日
+  a.globalNav__item href="/yesterday"
+    i.fa.fa-calendar
+    .globalNav__item__caption 昨日
+  a.globalNav__item href="/week"
+    i.fa.fa-calendar
+    .globalNav__item__caption 今週
+  a.globalNav__item href="/comments"
+    i.fa.fa-comments.globalNav__item_state_active
+    .globalNav__item__caption コメント
+
+.window__container
+
+  .comments
+    form.comments__form
+      input type="text" name="contents"
+      input type="submit" value="投稿"
+    - 5.times
+      .comments__item
+        time.comments__item__time 2015年02月01日 22:01:07
+        .comments__item__txt
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta id fugit, dolor error cum minima quos exercitationem in at illum voluptatum, blanditiis corporis maiores culpa consequatur quae odit accusamus quis.

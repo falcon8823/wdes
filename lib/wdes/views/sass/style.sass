@@ -186,12 +186,64 @@ span.color_blue
 
 .comments
     position: relative
-    height: 180px
-    border-radius: 0 0 4px 0
+    height: 500px
     background: $scheme_orange_20
     overflow: scroll
+    &.comments_type_recently
+        height: 180px
+        border-radius: 0 0 4px 0
 
     @at-root
+        #{&}__form
+            display: block
+            position: relative
+            padding: 10px
+            font-size: 0
+            border-radius: 0 4px 0 0
+            background: $scheme_black_70
+            input[type="text"]
+                display: block
+                box-sizing: border-box
+                padding: 0 .5em
+                padding-right: calc(100px + .5em)
+                width: 100%
+                height: 34px
+                color: $scheme_white_80
+                font-size: .8rem
+                line-height: 34px
+                border: 1px solid $scheme_white_40
+                border-radius: 4px
+                background: none
+                transition-property: color, border-color
+                transition-duration: .2s
+                &:hover, &:focus
+                    color: $scheme_white
+                    border-color: $scheme_white_60
+            input[type="submit"]
+                display: inline-block
+                position: absolute
+                padding: 0
+                top: 10px
+                right: 10px
+                z-index: 1
+                width: 100px
+                height: 34px
+                color: $scheme_white_80
+                line-height: 34px
+                text-align: center
+                text-indent: 0
+                border: none
+                border-radius: 0 4px 4px 0
+                background: $scheme_white_10
+                cursor: pointer
+                outline: none
+                transition-property: border-color, background-color
+                transition-duration: .2s
+                &:hover, &:active
+                    color: $scheme_white
+                    border-color: $scheme_white_80
+                    background-color: $scheme_white_20
+
         #{&}__item
             position: relative
             box-sizing: border-box
