@@ -34,11 +34,11 @@ nav.globalNav
     .panelChart__param= @current.try(:humidity)
     .panelChart__caption 湿度（％）
 
-  .panelChart.panelChart_type_text.panelChart_state_good
+  div(class="panelChart panelChart_type_text panelChart_state_#{@current.try(:moist_class) || 'attention'}")
     .panelChart__param= @current.try(:moist_condition)
     .panelChart__caption 水分
 
-  .panelChart.panelChart_type_text.panelChart_state_attention
+  div(class="panelChart panelChart_type_text panelChart_state_#{@current.try(:illum_class) || 'attention'}")
     .panelChart__param= @current.try(:illum_condition)
     .panelChart__caption 照度
 

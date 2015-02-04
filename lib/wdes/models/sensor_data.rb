@@ -39,6 +39,18 @@ class SensorData
     end
   end
 
+  def moist_class
+    if moisture > 100
+      "good"
+    elsif moisture > 60
+      "soso"
+    elsif moisture > 50
+      "notice"
+    else
+      "attention"
+    end
+  end
+
   # 照度
   def illum_condition
     if illum > 170
@@ -55,6 +67,19 @@ class SensorData
       "まっくら"
     end
   end
+
+  def illum_class
+    if illum > 60
+      "good"
+    elsif illum > 40
+      "soso"
+    elsif illum > 20
+      "notice"
+    else
+      "attention"
+    end
+  end
+
 
   protected
 
