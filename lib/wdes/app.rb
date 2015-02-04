@@ -45,7 +45,10 @@ module WDES
     end
 
     get '/' do
-      @list = SensorData.all(order: [:measured_at.desc], limit: 7)
+      @list = SensorData.all(
+        :measured_at.gt => 12.hour.ago,
+        order: [:measured_at.desc]
+      )
       @current = @list.first
       @comment = Comment.last
 
@@ -64,8 +67,8 @@ module WDES
 
     get '/yesterday' do
       @list = SensorData.all(
-        :measured_at.gt => 2.days.ago.beginning_of_day,
-        :measured_at.lt => 2.days.ago.end_of_day,
+        :measured_at.gt => 1.days.ago.beginning_of_day,
+        :measured_at.lt => 1.days.ago.end_of_day,
         order: [:measured_at.desc]
       )
       @list.select! { |r| r.measured_at.min == 0 }
@@ -75,7 +78,7 @@ module WDES
 
     get '/week' do
       @list = SensorData.all(
-        :measured_at.gt => 4.days.ago.beginning_of_day,
+        :measured_at.gt => 6.days.ago.beginning_of_day,
         order: [:measured_at.desc]
       )
       @list.select! { |r| r.measured_at.hour % 4 == 0 && r.measured_at.min == 0 }
