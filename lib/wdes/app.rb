@@ -1,3 +1,4 @@
+#coding: utf-8
 require 'wdes'
 
 require 'sinatra/base'
@@ -34,9 +35,11 @@ module WDES
     end
 
     # sass
+=begin
     get '/css/:name.css' do
       sass :"sass/#{params[:name]}"
     end
+=end
 
 
     before do
