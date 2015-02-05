@@ -21,19 +21,19 @@ class SensorData
   # 水分の状態
   def moist_condition
     if moisture > 170
-      "おぼれちゃうよ"
+      "おぼれるぅ"
     elsif moisture > 160
       "みずおいしい"
     elsif moisture > 140
       "さいこう"
-    elsif moisture > 100
+    elsif moisture > 120
       "いいかんじ"
-    elsif moisture > 60
+    elsif moisture > 90
       "いいね"
+    elsif moisture > 70
+      "かわいてる"
     elsif moisture > 50
-      "かわいてきた"
-    elsif moisture > 40
-      "みずちょうだい"
+      "みずほしい"
     else
       "かれちゃう…"
     end
@@ -42,7 +42,7 @@ class SensorData
   def moist_class
     if moisture > 100
       "good"
-    elsif moisture > 60
+    elsif moisture > 80
       "soso"
     elsif moisture > 50
       "notice"
